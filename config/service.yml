@@ -1,0 +1,12 @@
+## YAML Template.
+---
+parameters:
+    mailer.trans: hello,email
+services:
+    mailer:
+        class: Mailer
+        arguments: ['%mailer.trans%']
+    box:
+        class: MailerBox
+        calls:
+            - [setMailer, ['@mailer']]
